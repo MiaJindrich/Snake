@@ -1,5 +1,6 @@
 import pyglet
 import random
+from pathlib import Path
 
 # velikost pole
 pole = 64
@@ -8,13 +9,20 @@ VYSKA = pole * 10
 window = pyglet.window.Window(width=SIRKA, height=VYSKA)
 
 
-souradnice_had = [(0, 0)]
+souradnice_had = [(0, 0), (1, 0)]
 souradnice_ovoce = [(2, 3)]
 
-obrazek = pyglet.image.load('tail-head.png')
+TILES_DIRECTORY = Path('snake-tiles')
+
+snake_tiles = {}
+# key = název, value = obrázek
+for path in TILES_DIRECTORY.glob('*.png'):
+    snake_tiles[path.stem] = pyglet.image.load(path)
+
+obrazek = snake_tiles['tail-head']
 had = pyglet.sprite.Sprite(obrazek)
 
-apple = pyglet.image.load('apple.png')
+apple = snake_tiles['apple']
 ovoce = pyglet.sprite.Sprite(apple)
 
 """def tik(t):
@@ -85,7 +93,7 @@ def vykresli():
     # konec hry
     if hra_bezi == False:
         obrazek = pyglet.image.load('game_over.png')
-        konec = pyglet.sprite.Sprite(obrazek, x = 3*pole, y = 4*pole)
+        konec = pyglet.sprite.Sprite(obrazek, x = 2.5*pole, y = 4*pole)
         konec.draw()
 
 window.push_handlers(
