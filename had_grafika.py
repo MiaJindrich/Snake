@@ -92,7 +92,7 @@ def vykresli():
     
     # konec hry
     if hra_bezi == False:
-        obrazek = pyglet.image.load('game_over.png')
+        obrazek = snake_tiles['game_over_transparent']
         konec = pyglet.sprite.Sprite(obrazek, x = 2.5*pole, y = 4*pole)
         konec.draw()
 
@@ -102,3 +102,8 @@ window.push_handlers(
     )
 
 pyglet.app.run()
+
+
+# ještě bych mohla doplnit počítadlo ocasu
+# v momentě, kdy na počítadle je 99, hra končí - "You beat the game!"
+# nakonec vylepšit grafiku hada
