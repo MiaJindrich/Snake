@@ -1,3 +1,6 @@
+# initial code for building a Snake game
+# to play the game, run had_grafika.py file
+
 import random
 
 def nakresli_mapu(seznam, souradnice_ovoce, souradnice_tajemne_ovoce, rozmery_pole):

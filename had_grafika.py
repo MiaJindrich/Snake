@@ -104,6 +104,7 @@ window.push_handlers(
 pyglet.app.run()
 
 
+# had může jezdit sám
 # ještě bych mohla doplnit počítadlo ocasu
 # v momentě, kdy na počítadle je 99, hra končí - "You beat the game!"
 # nakonec vylepšit grafiku hada
