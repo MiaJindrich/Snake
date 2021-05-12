@@ -7,8 +7,17 @@ pole = 64
 SIRKA = pole * 10
 VYSKA = pole * 10
 window = pyglet.window.Window(width=SIRKA, height=VYSKA)
+# later create a function to set a width and height with default parameters 10, 10 
+# def set_dimensions(width=10, height=10): 
+#   SIRKA = pole*width 
+#   VYSKA = pole*height
+# v inputu bude možnost, jak velkou plochu si hráč chce zvolit: small/medium/large => to budou klíče k parametrům 10/15/20, které dosadím funkci jako parametr k vytvoření pole
+# bude potřeba počítat s resize celé hry i souřadnic - nastavit je jako proměnnou (to bude lepší řešit pomocí OOP)
 
 
+
+
+# počáteční souřadnice
 souradnice_had = [(0, 0), (1, 0)]
 souradnice_ovoce = [(2, 3)]
 
@@ -19,11 +28,11 @@ snake_tiles = {}
 for path in TILES_DIRECTORY.glob('*.png'):
     snake_tiles[path.stem] = pyglet.image.load(path)
 
-obrazek = snake_tiles['tail-head']
-had = pyglet.sprite.Sprite(obrazek)
 
-apple = snake_tiles['apple']
-ovoce = pyglet.sprite.Sprite(apple)
+had = pyglet.sprite.Sprite(snake_tiles['tail-head'])
+
+
+ovoce = pyglet.sprite.Sprite(snake_tiles['apple'])
 
 """def tik(t):
     # kdyby se měl ten had pohybovat sám
